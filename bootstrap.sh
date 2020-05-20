@@ -70,3 +70,9 @@ echo -e "kubeadmin\nkubeadmin" | passwd root
 
 # Update vagrant user's bashrc file
 echo "export TERM=xterm" >> /etc/bashrc
+
+# Add common tools
+echo "[TASK 13] Add common tools"
+apt-get install net-tools bash-completion -y
+kubectl completion bash >/etc/bash_completion.d/kubectl
+echo 'source <(kubectl completion bash)' >> /etc/bashrc
